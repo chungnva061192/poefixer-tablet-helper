@@ -25,7 +25,7 @@
 #include <unordered_map>
 #include <vector>
 
-inline constexpr const char* kTabletHelperVersion    = "1.3.2";
+inline constexpr const char* kTabletHelperVersion    = "1.4.0";
 inline constexpr const char* kTabletHelperMaintainer = "Omer Faruk ARPA";
 
 class TabletHelperPlugin : public PluginSDK::Plugin {
@@ -50,6 +50,7 @@ public:
             ImGui::SetCurrentContext(static_cast<ImGuiContext*>(ctx()->ImGuiContext));
 
         m_settings.Load(DirectoryPath());
+        m_loaded = true;
         ctx()->Log.Info(m_ranges.Load(DirectoryPath()).c_str());
         m_lastScan = std::chrono::steady_clock::now()
                      - std::chrono::milliseconds(m_settings.scanIntervalMs);
@@ -82,8 +83,8 @@ public:
     }
 
     void DrawSettings() override {
-        if (ctx()->ImGuiContext)
-            ImGui::SetCurrentContext(static_cast<ImGuiContext*>(ctx()->ImGuiContext));
+        if (!ctx()->ImGuiContext) return;  // incompatible host: our GImGui is null -> ImGui calls would deref null
+        ImGui::SetCurrentContext(static_cast<ImGuiContext*>(ctx()->ImGuiContext));
 
         ImGui::TextDisabled("Tablet Helper v%s  -  by %s",
                             kTabletHelperVersion, kTabletHelperMaintainer);
@@ -117,7 +118,9 @@ public:
         DrawDebugSettings();
     }
 
-    void SaveSettings() override { m_settings.Save(DirectoryPath()); }
+    void SaveSettings() override {
+        if (m_loaded) m_settings.Save(DirectoryPath());
+    }
 
 private:
     struct DrawItem {
@@ -126,6 +129,7 @@ private:
     };
 
     TabletHelperConfig::Settings m_settings;
+    bool m_loaded = false;
     TabletHelper::TabletScanner m_scanner;
     TabletHelper::TabletRanges m_ranges;
     std::vector<TabletHelper::VisibleTablet> m_visible;

@@ -3,6 +3,8 @@ bin/
 obj/
 *.user
 .vs/
+AGENTS.md
+.Codex/
 
 # Local-only: assistant notes, testing notes, local image copies
 CLAUDE.md

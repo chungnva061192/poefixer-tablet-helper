@@ -128,6 +128,25 @@ inline std::vector<Bonus> SpecificBonuses(const std::string& typeKey) {
             B("UniqueDeliriumEndlessFog", "Delirium Fog in your Maps never dissipates", kUnique),
         };
     }
+    if (typeKey == TypeKeys::Expedition) {
+        return {
+            B("TowerExpeditionExplosionRadius", "Increased Expedition Explosive Area of Effect", kMechanic),
+            B("TowerExpeditionLogbookIncrease", "Increased Quantity of Expedition Logbooks dropped by Runic Monsters", kMechanic),
+            B("TowerExpeditionRunicMonsters", "Increased number of Runic Monster Markers", kMechanic),
+            B("TowerExpeditionIncreasedVerisium", "Increased Verisium found in Expedition", kMechanic),
+            B("TowerExpeditionUnearthedRares", "First unearthed Runic Monsters are Rare", kMechanic),
+            B("TowerExpeditionAdditionalSentinels", "Expeditions contain additional Verisium Sentries", kMechanic),
+            B("TowerExpeditionIncreasedMonsterRarity", "Increased Expedition Monster Rarity", kMechanic),
+            B("TowerExpeditionFrozenBosses", "Expeditions contain additional Bosses encased in ice", kMechanic),
+            B("TowerExpeditionBuriedStrongboxes", "Expeditions contain additional buried Strongboxes", kMechanic),
+            B("TowerExpeditionVaalRemnants", "Expeditions contain additional Vaal Relics", kMechanic),
+            B("TowerExpeditionChanceForVerisiumRemnant", "Expeditions have increased chance to contain an additional Verisium Remnant", kMechanic),
+            B("TowerExpeditionChanceForTwinnedElites", "Expeditions have increased chance to Duplicate Runic Monsters", kMechanic),
+            B("TowerExpedition2RunicModPassoverChance", "Verisium Remnants have increased chance to add an additional Runic Modifier", kMechanic),
+            B("UniqueExpeditionExplosionRemovesLife", "Expedition Monsters spawn with half Life", kUnique),
+            B("UniqueExpeditionTwinnedElites", "Runic Monsters in your Maps are Duplicated", kUnique),
+        };
+    }
     if (typeKey == TypeKeys::Abyss) {
         return {
             B("TowerAbyssAdditionalChance", "Map contains an additional Abyss", kMechanic),

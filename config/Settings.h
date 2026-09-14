@@ -73,6 +73,7 @@ inline std::vector<TypeConfig> DefaultTypes() {
         make(TypeKeys::Irradiated, 0.85f, 0.85f, 0.85f, true),
         make(TypeKeys::Breach,     0.65f, 0.30f, 0.90f, true),
         make(TypeKeys::Delirium,   0.20f, 0.80f, 0.80f, true),
+        make(TypeKeys::Expedition, 0.95f, 0.55f, 0.15f, true),
         make(TypeKeys::Abyss,      0.80f, 0.15f, 0.15f, true),
         make(TypeKeys::Ritual,     0.95f, 0.35f, 0.20f, true),
         make(TypeKeys::Overseer,   0.95f, 0.80f, 0.20f, true),

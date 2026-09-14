@@ -1,6 +1,6 @@
 # Tablet Helper (PoeFixer)
 
-**Version 1.3.2** — a [PoeFixer](https://github.com/POEFixer/PoeFixer) plugin for
+**Version 1.4.0** — a [PoeFixer](https://github.com/POEFixer/PoeFixer) plugin for
 **Path of Exile 2** that highlights **Precursor Tablets** in every open item
 window (inventory, stash, special Tablet stash, guild stash, and merchant),
 colored per type and filterable by their bonuses and remaining uses.
@@ -35,8 +35,8 @@ to each bonus:
 ## Features
 
 - **Detects Precursor Tablets** by their metadata path (`TowerAugment`) and
-  classifies each into one of 7 types: Irradiated, Breach, Delirium, Abyss,
-  Ritual, Overseer, Temple.
+  classifies each into one of 8 types: Irradiated, Breach, Delirium, Expedition,
+  Abyss, Ritual, Overseer, Temple.
 - **Per-type highlighting** — every type has its own on/off toggle and color.
   Out of the box, every tablet is highlighted in its type color.
 - **Bonus filtering** — pick specific bonuses (from the built-in catalog) per type;
@@ -124,7 +124,7 @@ and `game/`.
 ```
 TabletHelper.cpp            Plugin entry: lifecycle, scan cadence, overlay draw, settings UI
 config/Settings.h           Crash-safe JSON settings (per-type config model)
-game/TabletTypes.h          Tablet detection + 7-type classification + normalization
+game/TabletTypes.h          Tablet detection + 8-type classification + normalization
 game/TabletBonusCatalog.h   Bonus catalog (Id -> label/category)
 game/PanelDetector.h        On-screen geometry + hybrid item-rect resolver
 game/TabletScanner.h        Enumerate inventories, filter tablets, read mods (cached)

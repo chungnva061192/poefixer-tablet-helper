@@ -17,6 +17,7 @@ inline constexpr const char* Unknown    = "Unknown";
 inline constexpr const char* Irradiated = "Irradiated";
 inline constexpr const char* Breach     = "Breach";
 inline constexpr const char* Delirium   = "Delirium";
+inline constexpr const char* Expedition = "Expedition";
 inline constexpr const char* Abyss      = "Abyss";
 inline constexpr const char* Ritual     = "Ritual";
 inline constexpr const char* Overseer   = "Overseer";
@@ -24,13 +25,13 @@ inline constexpr const char* Temple     = "Temple";
 inline constexpr const char* Global     = "Global";
 }  // namespace TypeKeys
 
-// The seven real tablet types, in canonical order.
+// The eight real tablet types, in canonical order.
 // (Global is a cross-type scope handled separately.)
-inline const std::array<const char*, 7>& RealTypeKeys() {
-    static const std::array<const char*, 7> k = {
+inline const std::array<const char*, 8>& RealTypeKeys() {
+    static const std::array<const char*, 8> k = {
         TypeKeys::Irradiated, TypeKeys::Breach, TypeKeys::Delirium,
-        TypeKeys::Abyss,      TypeKeys::Ritual, TypeKeys::Overseer,
-        TypeKeys::Temple};
+        TypeKeys::Expedition, TypeKeys::Abyss, TypeKeys::Ritual,
+        TypeKeys::Overseer, TypeKeys::Temple};
     return k;
 }
 
@@ -86,7 +87,7 @@ inline bool LooksLikeTablet(const std::string& path, const std::string& baseType
     return false;
 }
 
-// Classify into one of the seven types by substring cascade over the metadata
+// Classify into one of the eight types by substring cascade over the metadata
 // path (plus base type name as a safety net). ORDER MATTERS — first match wins.
 // Returns TypeKeys::Unknown if nothing matched (caller may then fall back to a
 // mod-name scan).
@@ -100,6 +101,7 @@ inline const char* ClassifyFromText(const std::string& path,
     if (has("abyss")) return TypeKeys::Abyss;
     if (has("breach")) return TypeKeys::Breach;
     if (has("delirium")) return TypeKeys::Delirium;
+    if (has("expedition")) return TypeKeys::Expedition;
     if (has("ritual")) return TypeKeys::Ritual;
     if (has("boss") || has("overseer")) return TypeKeys::Overseer;
     if (has("incursion") || has("temple") || has("vaal")) return TypeKeys::Temple;
@@ -115,6 +117,7 @@ inline const char* ClassifyFromModText(const std::string& lowerModText) {
     if (lowerModText.find("abyss") != std::string::npos) return TypeKeys::Abyss;
     if (lowerModText.find("breach") != std::string::npos) return TypeKeys::Breach;
     if (lowerModText.find("delirium") != std::string::npos) return TypeKeys::Delirium;
+    if (lowerModText.find("expedition") != std::string::npos) return TypeKeys::Expedition;
     if (lowerModText.find("ritual") != std::string::npos) return TypeKeys::Ritual;
     if (lowerModText.find("mapboss") != std::string::npos
         || lowerModText.find("boss") != std::string::npos)
@@ -132,6 +135,7 @@ inline const char* DisplayName(const std::string& key) {
     if (key == TypeKeys::Irradiated) return "Irradiated Tablet";
     if (key == TypeKeys::Breach)     return "Breach Tablet";
     if (key == TypeKeys::Delirium)   return "Delirium Tablet";
+    if (key == TypeKeys::Expedition) return "Expedition Tablet";
     if (key == TypeKeys::Abyss)      return "Abyss Tablet";
     if (key == TypeKeys::Ritual)     return "Ritual Tablet";
     if (key == TypeKeys::Overseer)   return "Overseer Tablet";
@@ -145,6 +149,7 @@ inline const char* ShortName(const std::string& key) {
     if (key == TypeKeys::Irradiated) return "Irradiated";
     if (key == TypeKeys::Breach)     return "Breach";
     if (key == TypeKeys::Delirium)   return "Delirium";
+    if (key == TypeKeys::Expedition) return "Expedition";
     if (key == TypeKeys::Abyss)      return "Abyss";
     if (key == TypeKeys::Ritual)     return "Ritual";
     if (key == TypeKeys::Overseer)   return "Overseer";

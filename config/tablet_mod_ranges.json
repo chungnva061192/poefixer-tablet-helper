@@ -2,11 +2,11 @@
   "_meta": {
     "purpose": "Value ranges for Precursor Tablet modifiers, used for min/max slider bounds and labels. Editable: update after a patch changes rolls; the plugin also auto-widens a range if it ever reads a higher value in-game.",
     "source": "https://poe2db.tw/us/Tablet",
-    "patch": "0.5",
+    "patch": "0.5.5",
     "unit_values": "percent | flat | seconds | none",
     "id_note": "id is the internal mod id (matched to the plugin catalog). The additional-X family and Ritual Rare/Magic naming are best-effort and should be confirmed against the in-game debug dump, which reports the real mod id per line.",
-    "types_note": "Real in-game tablet types (0.5): overseer, temple, abyss, breach, delirium, ritual, plus the generic Precursor Tablet and the unique tablets (Irradiated tablets exist only as uniques). Expedition tablets are NOT obtainable, so their mods were removed.",
-    "count": 74
+    "types_note": "Real in-game tablet types (0.5.5): overseer, temple, abyss, breach, delirium, expedition, ritual, plus the generic Precursor Tablet and unique tablets (Irradiated tablets exist only as uniques). Expedition Tablets are available from 0.5.5 onward.",
+    "count": 89
   },
   "mods": [
     { "id": "TowerDroppedItemRarityIncrease", "affix": "prefix", "min": 8, "max": 12, "unit": "percent", "text": "increased Rarity of Items found in Map" },
@@ -22,6 +22,22 @@
     { "id": "TowerRarePackIncrease", "affix": "prefix", "min": 25, "max": 35, "unit": "percent", "text": "Map has increased number of Rare Monsters" },
     { "id": "TowerMagicPackIncrease", "affix": "prefix", "min": 30, "max": 40, "unit": "percent", "text": "Map has increased Magic Monsters" },
     { "id": "TowerPackSizeIncrease", "affix": "prefix", "min": 5, "max": 7, "unit": "percent", "text": "increased Pack Size in Map" },
+
+    { "id": "TowerExpeditionExplosionRadius", "affix": "suffix", "min": 5, "max": 10, "unit": "percent", "text": "Increased Expedition Explosive Area of Effect in Map" },
+    { "id": "TowerExpeditionLogbookIncrease", "affix": "suffix", "min": 15, "max": 25, "unit": "percent", "text": "Increased Quantity of Expedition Logbooks dropped by Runic Monsters in Map" },
+    { "id": "TowerExpeditionRunicMonsters", "affix": "suffix", "min": 15, "max": 25, "unit": "percent", "text": "Increased number of Runic Monster Markers in Map" },
+    { "id": "TowerExpeditionIncreasedVerisium", "affix": "suffix", "min": 15, "max": 25, "unit": "percent", "text": "Increased Verisium found in Expedition" },
+    { "id": "TowerExpeditionUnearthedRares", "affix": "suffix", "min": 1, "max": 2, "unit": "flat", "text": "The first unearthed Runic Monsters are Rare in Map" },
+    { "id": "TowerExpeditionAdditionalSentinels", "affix": "suffix", "min": 1, "max": 2, "unit": "flat", "text": "Expeditions contain additional Verisium Sentries in Map" },
+    { "id": "TowerExpeditionIncreasedMonsterRarity", "affix": "suffix", "min": 15, "max": 25, "unit": "percent", "text": "Increased Expedition Monster Rarity in Map" },
+    { "id": "TowerExpeditionFrozenBosses", "affix": "suffix", "min": 1, "max": 2, "unit": "flat", "text": "Expeditions contain additional Bosses encased in ice in Map" },
+    { "id": "TowerExpeditionBuriedStrongboxes", "affix": "suffix", "min": 1, "max": 2, "unit": "flat", "text": "Expeditions contain additional buried Strongboxes in Map" },
+    { "id": "TowerExpeditionVaalRemnants", "affix": "suffix", "min": 1, "max": 2, "unit": "flat", "text": "Expeditions contain additional Vaal Relics in Map" },
+    { "id": "TowerExpeditionChanceForVerisiumRemnant", "affix": "suffix", "min": 30, "max": 40, "unit": "percent", "text": "Expeditions have increased chance to contain an additional Verisium Remnant" },
+    { "id": "TowerExpeditionChanceForTwinnedElites", "affix": "suffix", "min": 30, "max": 40, "unit": "percent", "text": "Expeditions have increased chance to Duplicate Runic Monsters in Map" },
+    { "id": "TowerExpedition2RunicModPassoverChance", "affix": "suffix", "min": 25, "max": 35, "unit": "percent", "text": "Verisium Remnants have increased chance to add an additional Runic Modifier in Map" },
+    { "id": "UniqueExpeditionExplosionRemovesLife", "affix": "suffix", "min": 1, "max": 1, "unit": "flat", "text": "Expedition Monsters spawn with half Life" },
+    { "id": "UniqueExpeditionTwinnedElites", "affix": "suffix", "min": 1, "max": 1, "unit": "flat", "text": "Runic Monsters in your Maps are Duplicated" },
 
     { "id": "TowerDeliriumAdditionalShardsChance", "affix": "suffix", "min": 12, "max": 26, "unit": "percent", "text": "Delirium Fog spawns increased Mirror Shards" },
     { "id": "TowerMapBossExperience", "affix": "suffix", "min": 40, "max": 80, "unit": "percent", "text": "Map Bosses grant increased Experience" },
