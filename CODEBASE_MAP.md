@@ -1,10 +1,10 @@
 # Kod haritası — Tablet Helper
 
-> Güncellendi: 2026-09-15. Kanıt: TabletHelper.cpp, config/game kaynakları, README ve `.vcxproj`; oyun içi çalışma gözlenmedi.
+> Güncellendi: 2026-09-21. Kanıt: TabletHelper.cpp, config/game kaynakları, README ve `.vcxproj`; oyun içi çalışma gözlenmedi.
 
 ## Giriş ve akış
 
-Windows x64/C++20 PoeFixer overlay/item DLL; `TabletHelper.sln` / `TabletHelper.vcxproj`, MSVC v145, SDK C ABI v6. `TabletHelper.cpp` ayarları yükler, açık item pencerelerini tarar ve vurguları çizer. Kaynak/README sürümü 1.4.0.
+Windows x64/C++20 PoeFixer overlay/item DLL; `TabletHelper.sln` / `TabletHelper.vcxproj`, MSVC v145, SDK C ABI v6. `TabletHelper.cpp` ayarları yükler, açık item pencerelerini tarar ve vurguları çizer. Kaynak/README sürümü 1.4.1.
 
 | Yol | Görev |
 |---|---|

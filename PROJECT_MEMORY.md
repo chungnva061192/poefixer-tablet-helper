@@ -1,11 +1,11 @@
 # Proje hafızası — Tablet Helper
 
-> Güncellendi: 2026-09-15. Repository-owned context; secret içermez.
+> Güncellendi: 2026-09-21. Repository-owned context; secret içermez.
 
 ## Mevcut durum
 
-- Kaynak ve README sürümü 1.4.0; Expedition Tablet desteği eklendi (8 tür, Expedition bonus kataloğu ve 0.5.5 aralıkları). GitHub release yayımlandı: https://github.com/omrfarukarpa/poefixer-tablet-helper/releases/tag/v1.4.0.
-- Depoda bağlam yenilemesi öncesinden gelen yerel `TabletHelper.cpp` değişikliği vardır; korunuyor, işlevi bu görevde yeniden değerlendirilmedi.
+- Kaynak ve README sürümü 1.4.1; Expedition tablet "Surpassing chance" mod etiketleri oyun içi metinlerle eşitlendi (`TowerExpeditionChanceForVerisiumRemnant` ve `TowerExpeditionChanceForTwinnedElites`). Kullanıcılar artık arama kutusuna `surpassing` yazarak bu modları bulup filtreleyebiliyor.
+- GitHub release yayımlandı: https://github.com/omrfarukarpa/poefixer-tablet-helper/releases/tag/v1.4.1.
 
 ## Onaylı kararlar ve sonuçlar
 
@@ -15,5 +15,5 @@
 
 ## Riskler ve bekleyenler
 
-- 1.4.0 Release x64 derlemesi hatasız tamamlandı; DLL SHA-256 `EFC8AF75022F9D6E3D031BBE7228B711FC7CD1FF57780F10BF79D6023415D611` ile yerel PoeFixer kurulumuna ve GitHub release varlığına kopyalandı. GitHub release yayımlandı: https://github.com/omrfarukarpa/poefixer-tablet-helper/releases/tag/v1.4.0. Expedition mod kimliklerinin canlı `ReadItemMods` çıktısı ve özel/guild sekme rect'leri oyun içinde doğrulanmadı.
+- 1.4.1 Release x64 derlemesi hatasız tamamlandı; DLL SHA-256 `6516B73B558FBEE16FA39813973B4B0738D5C252A5B2D68A7C038C3CEC5AB10B` ile yerel PoeFixer kurulumuna (`D:\POE2\fixer\Plugins\TabletHelper`) ve GitHub release varlığına kopyalandı.
 - Otomatik test çalıştırılmadı; yayın öncesi temiz derleme ve veri dosyası kontrolü gerekir.
