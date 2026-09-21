@@ -25,7 +25,7 @@
 #include <unordered_map>
 #include <vector>
 
-inline constexpr const char* kTabletHelperVersion    = "1.4.0";
+inline constexpr const char* kTabletHelperVersion    = "1.4.1";
 inline constexpr const char* kTabletHelperMaintainer = "Omer Faruk ARPA";
 
 class TabletHelperPlugin : public PluginSDK::Plugin {
