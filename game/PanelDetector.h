@@ -14,6 +14,7 @@
 
 #include "sdk/PluginSDK.h"
 
+#include <cstring>
 #include <optional>
 
 namespace TabletHelper {
@@ -48,6 +49,14 @@ inline bool ItemOnScreen(const PluginSDK::InventoryItem& item, float displayW, f
     return cx >= 0.f && cy >= 0.f && cx < displayW && cy < displayH;
 }
 
+// True for the player backpack. Its TotalBoxesY is typically 5, which fails
+// GridLayoutPlausible (that gate exists to reject special/affinity tabs with
+// absurd logical grids). Callers pass trustedGrid=true so inventory items still
+// resolve via grid math when per-item screen rects are missing.
+inline bool IsMainInventoryName(const char* name) {
+    return name && std::strncmp(name, "MainInventory", 13) == 0;
+}
+
 // Reject absurd grid layouts before trusting grid math (a special tab's logical
 // grid can be e.g. 53x4 and overflow the screen).
 inline bool GridLayoutPlausible(const PluginSDK::Inventory& inv, float displayW) {
@@ -60,12 +69,14 @@ inline bool GridLayoutPlausible(const PluginSDK::Inventory& inv, float displayW)
 
 inline std::optional<ScreenRect> ResolveItemRect(const PluginSDK::Inventory& inv,
                                                  const PluginSDK::InventoryItem& item,
-                                                 float displayW, float displayH) {
+                                                 float displayW, float displayH,
+                                                 bool trustedGrid = false) {
     if (ItemOnScreen(item, displayW, displayH)) {
         return ScreenRect{item.ScreenX, item.ScreenY, item.ScreenW, item.ScreenH};
     }
     if (inv.Grid.Valid && GridOnScreen(inv, displayW, displayH)
-        && inv.Grid.CellSize > 0.f && GridLayoutPlausible(inv, displayW)) {
+        && inv.Grid.CellSize > 0.f
+        && (trustedGrid || GridLayoutPlausible(inv, displayW))) {
         const float cell = inv.Grid.CellSize;
         return ScreenRect{
             inv.Grid.GridScreenX + static_cast<float>(item.SlotX) * cell,
