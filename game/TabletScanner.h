@@ -79,9 +79,11 @@ public:
         int newParses = 0;
 
         for (const auto& inv : all) {
+            const bool trustedGrid =
+                IsMainInventoryName(ctx->Inventory.GetName(inv.InventoryId));
             for (const auto& item : inv.Items) {
                 if (!LooksLikeTablet(item.Path, item.BaseTypeName)) continue;
-                auto rect = ResolveItemRect(inv, item, displayW, displayH);
+                auto rect = ResolveItemRect(inv, item, displayW, displayH, trustedGrid);
                 if (!rect) continue;                 // not laid out on screen
                 if (item.Address == 0) continue;     // need a stable cache key
                 if (!seenThisScan.insert(item.Address).second) continue;
